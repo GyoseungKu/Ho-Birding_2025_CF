@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="UTF-8" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>조류 MBTI</title>
@@ -59,6 +59,10 @@
         <p>제출?</p>
         <button type="submit">제출하기</button>
     </div>
+    <div id="resultPage" class="page">
+        <p id="resultMessage"></p>
+        <button type="button" onclick="retakeSurvey()">다시 설문하기</button>
+    </div>
 </form>
 
 <script>
@@ -77,14 +81,38 @@
         }
     }
 
+    function retakeSurvey() {
+        currentPage = 1;
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.getElementById('page1').classList.add('active');
+        document.getElementById('questionnaireForm').reset();
+    }
+
     document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
         event.preventDefault();
         const answers = { name: document.getElementById('name').value };
         for (let i = 2; i <= 8; i++) {
             answers[`q${i-1}`] = document.getElementById(`page${i}`).dataset.answer;
         }
-        console.log('Answers:', answers);
-        // You can send the answers to the server here
+
+        fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(answers)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Show MBTI result page
+                document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+                document.getElementById('resultPage').classList.add('active');
+                document.getElementById('resultMessage').innerText = '당신의 mbti는? aaaa입니다';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     });
 </script>
 </body>
