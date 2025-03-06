@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Question 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#name').on('blur', function() {
+                var name = $(this).val();
+                $.get('/checkName', { name: name }, function(data) {
+                    if (data) {
+                        $('#nameWarning').text('이미 존재하는 닉네임입니다.');
+                    } else {
+                        $('#nameWarning').text('');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<form action="/questionnaire" method="get">
+    <label>닉네임:</label>
+    <input type="text" id="name" name="name" required>
+    <span id="nameWarning" style="color: red;"></span>
+    <button type="submit">다음</button>
+</form>
+</body>
+</html>

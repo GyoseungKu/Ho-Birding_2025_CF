@@ -21,6 +21,7 @@ public class Questionnaire {
     private String q5;
     private String q6;
     private String q7;
+    private String q8;
     private String mbti;
     private LocalDateTime time;
 
@@ -87,6 +88,14 @@ public class Questionnaire {
 
     public void setQ7(String q7) {
         this.q7 = q7;
+    }
+
+    public String getQ8() {
+        return q8;
+    }
+
+    public void setQ8(String q8) {
+        this.q8 = q8;
     }
 
     public String getMbti() {

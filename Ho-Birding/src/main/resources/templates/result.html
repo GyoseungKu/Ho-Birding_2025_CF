@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+</head>
+<body>
+<h1>결과</h1>
+<p th:text="${name} + '님의 MBTI는 ' + ${mbti} + '입니다.'"></p>
+<form action="/" method="get">
+    <button type="submit">다시 응답하기</button>
+</form>
+</body>
+</html>
