@@ -1,15 +1,76 @@
-<!-- src/main/resources/templates/question5.html -->
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
-  <title>Question 5</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>질문 5</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .question-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question-header .progress {
+      color: #ccc;
+      font-size: 25px;
+    }
+    .question-header .question-number {
+      font-size: 100px;
+      color: #297131;
+      margin: 10px 0;
+    }
+    .question-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question-container h2 {
+      font-size: 25px;
+    }
+    .answer-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .answer-button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      padding: 15px;
+      background: #297131;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 20px;
+      transition: background 0.3s;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .answer-button:hover {
+      background: #2980b9;
+    }
+  </style>
 </head>
 <body>
-<form action="/question5" method="post">
-  <label>Question 5:</label>
-  <button type="submit" name="q5" value="1">A</button>
-  <button type="submit" name="q5" value="0">B</button>
-</form>
+<div class="question-header">
+  <div class="progress">5/8</div>
+  <div class="question-number">Q5</div>
+</div>
+<div class="question-container">
+  <h2>내가 둥지를 짓는다면, 나는?</h2>
+  <br><br><br><br><br><br>
+</div>
+<div class="answer-buttons">
+  <a href="question6?answer=A" class="answer-button">A. 조용히 재료를 탐색하면서<br>
+    천적을 피할 장소부터 파악해야지</a>
+  <a href="question6?answer=B" class="answer-button">B. 그냥 주변에 있는 재료들 수집!<br>
+    부딪히며 경험하는 게 제일 재밌어!</a>
+</div>
 </body>
 </html>

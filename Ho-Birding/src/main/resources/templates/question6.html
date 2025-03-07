@@ -1,15 +1,76 @@
-<!-- src/main/resources/templates/question6.html -->
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
-  <title>Question 6</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>질문 6</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .question-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question-header .progress {
+      color: #ccc;
+      font-size: 25px;
+    }
+    .question-header .question-number {
+      font-size: 100px;
+      color: #297131;
+      margin: 10px 0;
+    }
+    .question-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question-container h2 {
+      font-size: 25px;
+    }
+    .answer-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .answer-button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      padding: 15px;
+      background: #297131;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 20px;
+      transition: background 0.3s;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .answer-button:hover {
+      background: #2980b9;
+    }
+  </style>
 </head>
 <body>
-<form action="/question6" method="post">
-  <label>Question 6:</label>
-  <button type="submit" name="q6" value="1">A</button>
-  <button type="submit" name="q6" value="0">B</button>
-</form>
+<div class="question-header">
+  <div class="progress">6/8</div>
+  <div class="question-number">Q6</div>
+</div>
+<div class="question-container">
+  <h2>둥지 내에서 회의를 할 때, 나는?</h2>
+  <br><br><br><br><br><br>
+</div>
+<div class="answer-buttons">
+  <a href="question7?answer=A" class="answer-button">A. 각자 맡을 역할을 정하고<br>
+    체계적으로 진행하자고 말할 거야!</a>
+  <a href="question7?answer=B" class="answer-button">B. 날개를 펴고 자유롭게 아이디어를<br>
+    떠올려 보자!</a>
+</div>
 </body>
 </html>

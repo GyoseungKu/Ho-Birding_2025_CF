@@ -1,19 +1,17 @@
+// src/main/java/com/example/Ho_Birding/main/entity/Bird.java
 package com.example.Ho_Birding.main.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
+
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "bird2025")
-public class Questionnaire {
+public class Bird {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    private int id;
+
     private String q1;
     private String q2;
     private String q3;
@@ -23,15 +21,17 @@ public class Questionnaire {
     private String q7;
     private String q8;
     private String mbti;
-    private LocalDateTime time;
 
-    // Getters and Setters
-    public String getName() {
-        return name;
+    @Column(insertable = false, updatable = false)
+    private Timestamp time;
+
+    // Getters and setters
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getQ1() {
@@ -106,11 +106,11 @@ public class Questionnaire {
         this.mbti = mbti;
     }
 
-    public LocalDateTime getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 }

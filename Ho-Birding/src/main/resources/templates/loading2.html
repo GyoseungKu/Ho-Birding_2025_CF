@@ -1,0 +1,45 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과 분석</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loading-container img {
+            width: 200px;
+            height: auto;
+        }
+        .loading-text {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="loading-container">
+    <img src="/egg.gif" alt="결과 분석중...">
+    <div class="loading-text" id="loading-text">결과 분석중...</div>
+</div>
+<script>
+    const loadingText = document.getElementById('loading-text');
+    const dots = ['', '.', '..', '...'];
+    let currentDot = 0;
+
+    setInterval(() => {
+        loadingText.textContent = `결과 분석중${dots[currentDot]}`;
+        currentDot = (currentDot + 1) % dots.length;
+    }, 500);
+
+    setTimeout(function() {
+        window.location.href = "result";
+    }, 3600);
+</script>
+</body>
+</html>

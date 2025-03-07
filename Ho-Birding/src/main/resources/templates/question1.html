@@ -1,16 +1,76 @@
-<!-- src/main/resources/templates/question1.html -->
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
-    <title>Question 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문 1</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .question-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question-header .progress {
+            color: #ccc;
+            font-size: 25px;
+        }
+        .question-header .question-number {
+            font-size: 100px;
+            color: #297131;
+            margin: 10px 0;
+        }
+        .question-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question-container h2 {
+            font-size: 25px;
+        }
+        .answer-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .answer-button {
+            display: block;
+            width: 100%;
+            max-width: 4000px;
+            padding: 15px;
+            background: #297131;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            transition: background 0.3s;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .answer-button:hover {
+            background: #2980b9;
+        }
+    </style>
 </head>
 <body>
-<form action="/question1" method="post">
-    <input type="hidden" name="name" th:value="${name}">
-    <label>Question 1:</label>
-    <button type="submit" name="q1" value="1">A</button>
-    <button type="submit" name="q1" value="0">B</button>
-</form>
+<div class="question-header">
+    <div class="progress">1/8</div>
+    <div class="question-number">Q1</div>
+</div>
+<div class="question-container">
+    <h2>내가 새로운 둥지에 처음 도착했을 때, 나는?</h2>
+    <br><br><br><br><br><br>
+</div>
+<div class="answer-buttons">
+    <a href="question2?answer=A" class="answer-button">A. 새콤한 과일과 편안한 구석을 찾으며<br>
+        천천히 주변을 살펴봐</a>
+    <a href="question2?answer=B" class="answer-button">B. 날개 펴고, 이곳저곳을 빨리 탐험해야<br>
+        적성이 풀려!</a>
+</div>
 </body>
 </html>

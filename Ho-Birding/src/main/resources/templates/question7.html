@@ -1,15 +1,76 @@
-<!-- src/main/resources/templates/question7.html -->
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
-  <title>Question 7</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>질문 7</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .question-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question-header .progress {
+      color: #ccc;
+      font-size: 25px;
+    }
+    .question-header .question-number {
+      font-size: 100px;
+      color: #297131;
+      margin: 10px 0;
+    }
+    .question-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question-container h2 {
+      font-size: 25px;
+    }
+    .answer-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .answer-button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      padding: 15px;
+      background: #297131;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 20px;
+      transition: background 0.3s;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .answer-button:hover {
+      background: #2980b9;
+    }
+  </style>
 </head>
 <body>
-<form action="/question7" method="post">
-  <label>Question 7:</label>
-  <button type="submit" name="q7" value="1">A</button>
-  <button type="submit" name="q7" value="0">B</button>
-</form>
+<div class="question-header">
+  <div class="progress">7/8</div>
+  <div class="question-number">Q7</div>
+</div>
+<div class="question-container">
+  <h2>하늘을 나는 내 방식은?</h2>
+  <br><br><br><br><br><br>
+</div>
+<div class="answer-buttons">
+  <a href="question8?answer=A" class="answer-button">A. 목적지까지 한 번에 곧장 날아가야 해!<br>
+    에너지 절약도 중요하니까!</a>
+  <a href="question8?answer=B" class="answer-button">B. 하늘을 자유롭게 날며<br>
+    주변을 둘러보는 게 훨씬 재밌어!</a>
+</div>
 </body>
 </html>

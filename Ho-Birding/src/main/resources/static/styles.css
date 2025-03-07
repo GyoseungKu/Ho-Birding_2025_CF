@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('Ongleap Park Dahyun Font.ttf') format('truetype'); /* Custom font */
+}
+
+@font-face {
+    font-family: 'OneMobile';
+    src: url('ONE Mobile Regular.ttf') format('truetype'); /* OneMobile font */
+}
+
+body {
+    font-family: 'CustomFont', sans-serif;
+    text-align: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.description {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20vh;
+    margin-top: 200px;
+}
+
+.start-button-style,
+.share-button-style,
+.retry-button-style {
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    padding: 15px;
+    background: #297131;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 30px;
+    transition: background 0.3s;
+    text-align: center;
+    margin: 10px 0;
+    border: none; /* Remove black border */
+
+}
+
+.start-button-style:hover,
+.share-button-style:hover,
+.retry-button-style:hover {
+    background: #2980b9;
+    color: gray;
+}
+
+.hover-text {
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'OneMobile', sans-serif;
+}
+
+.typing-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 16px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.padded-left {
+    padding-left: 30px;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.custom-list {
+    list-style-type: none;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.custom-list li::before {
+    content: "\25C6";
+    color: #297131;
+    position: absolute;
+    left: -10px;
+    font-size: 0.4em;
+}
+
+@media (max-height: 800px) {
+    .description {
+        font-size: 20px;
+    }
+    .start-button-style {
+        font-size: 28px;
+    }
+    .hover-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-height: 600px) {
+    .description {
+        font-size: 18px;
+    }
+    .start-button-style {
+        font-size: 24px;
+    }
+    .hover-text {
+        font-size: 16px;
+    }
+}
