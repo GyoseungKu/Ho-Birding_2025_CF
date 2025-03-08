@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>파랑새</title>
+    <title>??????</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
         @font-face {
@@ -17,7 +17,7 @@
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 25px;
             margin: 10px 0;
         }
 
@@ -47,6 +47,7 @@
             margin-top: 0;
             width: 90%;
             max-width: 800px;
+            border-radius: 10px; /* Add this line to give a slight border-radius */
         }
 
         .button-container {
@@ -79,20 +80,20 @@
 <div class="result-container">
     <div class="image-container">
         <img src="/title_box.png" alt="타이틀 박스" class="title-image">
-        <div class="title-text">파랑새</div>
+        <div class="title-text">??????</div>
     </div>
-    <h1>날개를 펼쳐, 무한한 지식을 탐험하는 비행 사상가</h1>
+    <h1>혹시...? 이미 멸종한 새...?</h1>
     <br>
     <div class="image-container">
-        <img src="/prs.png" alt="파랑새" class="bird-image">
+        <img src="/err.jpg" alt="알수없음" class="bird-image">
     </div>
     <br>
-    <p class="left-align padded-left">#호기심천국 #지식탐험 #사색가</p>
+    <p class="left-align padded-left">#분석불가 #시스템오류 #멸종위기</p>
     <ul class="custom-list left-align">
-        <li>자유롭게 날며 새로운 아이디어를 탐험</li>
-        <li>혼자만의 시간에서 많은 에너지를 얻음</li>
-        <li>세상의 다양한 지식에 대한 호기심이 많음</li>
-        <li>날개를 펼 때마다 창의적인 비상</li>
+        <li>분석 과정에서 에러 발생!</li>
+        <li>당신은 이 세상에 존재하는 새가 맞나요?</li>
+        <li>다시 응답하는 것은 어떨까요?</li>
+        <li>오류가 계속되면 문의 바랍니다!</li>
     </ul>
     <div class="button-container">
         <button class="share-button-style" onclick="share()">공유하기</button>
@@ -103,8 +104,8 @@
 <script>
     function share() {
         const downloadLink = document.createElement('a');
-        downloadLink.href = '/prs_s.png';
-        downloadLink.download = 'prs_s.jpg';
+        downloadLink.href = '/err_s.png';
+        downloadLink.download = 'err_s.jpg';
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);

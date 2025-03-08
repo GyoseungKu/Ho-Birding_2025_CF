@@ -45,6 +45,11 @@ public class MBTIService {
     }
 
     public String determineMBTI(List<String> answers) {
+        // answers 리스트가 8개의 "A" 또는 "B" 값으로 구성되어 있는지 확인
+        if (answers.size() != 8 || !answers.stream().allMatch(answer -> answer.equals("A") || answer.equals("B"))) {
+            throw new IllegalArgumentException("Invalid answers: " + answers);
+        }
+
         String result = mbtiMap.getOrDefault(answers, "Unknown");
         System.out.println("determineMBTI result: " + result);
         return result;

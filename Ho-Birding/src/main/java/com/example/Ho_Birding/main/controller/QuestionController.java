@@ -203,4 +203,9 @@ public class QuestionController {
         return "result_ESFP";
     }
 
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
+
 }
