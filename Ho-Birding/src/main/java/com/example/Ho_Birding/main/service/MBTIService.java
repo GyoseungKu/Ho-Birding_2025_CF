@@ -46,10 +46,9 @@ public class MBTIService {
 
     public String determineMBTI(List<String> answers) {
         String result = mbtiMap.getOrDefault(answers, "Unknown");
-        System.out.println("determineMBTI 결과: " + result);
+        System.out.println("determineMBTI result: " + result);
         return result;
     }
-
 
     public String getBirdName(String mbti) {
         return birdNameMap.getOrDefault(mbti, "Unknown");

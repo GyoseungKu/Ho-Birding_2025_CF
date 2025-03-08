@@ -27,8 +27,8 @@ public class QuestionController {
 
     @GetMapping("/question1")
     public String question1() {
-        answers = new ArrayList<>();
-        bird = new Bird();
+        answers = new ArrayList<>();  // 새로운 리스트로 초기화
+        bird = new Bird();  // 새로운 Bird 객체 생성
         return "question1";
     }
 
@@ -88,27 +88,35 @@ public class QuestionController {
 
     @GetMapping("/loading2")
     public String loading2(@RequestParam String answer, Model model) {
-        answers.add(answer);
-        bird.setQ8(answer);
-        String mbti = mbtiService.determineMBTI(answers);
+        answers.add(answer);  // Add the last answer to the answers list
+        bird.setQ8(answer);   // Set the last answer in the Bird entity
 
-        System.out.println("MBTI 결정됨: " + mbti); // 디버깅 로그 추가
+        // Determine MBTI
+        if (bird.getMbti() == null) {
+            String mbti = mbtiService.determineMBTI(answers);
+            bird.setMbti(mbti);
+            System.out.println("Determined MBTI: " + mbti);
+        }
 
-        model.addAttribute("mbti", mbti);
+        // Save the Bird entity to the database
+        birdRepository.save(bird);
+
+        // Add the MBTI to the model
+        model.addAttribute("mbti", bird.getMbti());
         return "loading2";
     }
 
-
     @GetMapping("/result_{mbti}")
     public String resultByMBTI(@PathVariable String mbti, Model model) {
-        System.out.println("요청된 MBTI: " + mbti);
-        Bird bird = birdRepository.findByMbti(mbti);
+        System.out.println("Requested MBTI: " + mbti);
+        List<Bird> birds = birdRepository.findByMbti(mbti);
 
-        if (bird == null) {
-            System.out.println("해당 MBTI 결과 없음: " + mbti);
-            return "redirect:/error";
+        if (birds.isEmpty()) {
+            System.out.println("No results found for MBTI: " + mbti);
+            return "redirect:/error"; // 에러 페이지로 리디렉션
         }
 
+        Bird bird = birds.get(0); // 첫 번째 결과를 사용
         String birdName = mbtiService.getBirdName(bird.getMbti());
         model.addAttribute("birdName", birdName);
         return "result_" + mbti;
