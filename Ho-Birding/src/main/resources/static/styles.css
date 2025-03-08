@@ -1,16 +1,17 @@
 @font-face {
     font-family: 'CustomFont';
-    src: url('Ongleap Park Dahyun Font.ttf') format('truetype'); /* Custom font */
+    src: url('Ongleap Park Dahyun Font.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'OneMobile';
-    src: url('ONE Mobile Regular.ttf') format('truetype'); /* OneMobile font */
+    src: url('ONE Mobile Regular.ttf') format('truetype');
 }
 
 body {
     font-family: 'CustomFont', sans-serif;
     text-align: center;
+    background-color: white;
     color: #333;
     margin: 0;
     padding: 0;
@@ -66,8 +67,7 @@ body {
     transition: background 0.3s;
     text-align: center;
     margin: 10px 0;
-    border: none; /* Remove black border */
-
+    border: none;
 }
 
 .start-button-style:hover,
@@ -92,29 +92,37 @@ body {
     white-space: pre-wrap;
 }
 
-.padded-left {
-    padding-left: 30px;
+.left-align {
+    font-size: 20px;
+    text-align: left;
+    margin-left: -30px;
 }
 
-.left-align {
-    text-align: left;
+.padded-left {
+    font-size: 20px;
+    padding-left: 5px;
+    margin-left: -30px;
 }
 
 .custom-list {
     list-style-type: none;
+    padding-left: 0;
 }
 
 .custom-list li {
     position: relative;
-    padding-left: 20px;
+    padding-left: 10px;
+    margin-left: -20px;
+    display: flex;
+    align-items: center;
 }
 
 .custom-list li::before {
-    content: "\25C6";
-    color: #297131;
+    content: '•';
     position: absolute;
-    left: -10px;
-    font-size: 0.4em;
+    left: 0;
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 @media (max-height: 800px) {

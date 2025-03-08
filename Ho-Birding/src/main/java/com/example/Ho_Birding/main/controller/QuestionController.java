@@ -87,28 +87,112 @@ public class QuestionController {
     }
 
     @GetMapping("/loading2")
-    public String loading2(@RequestParam String answer) {
+    public String loading2(@RequestParam String answer, Model model) {
         answers.add(answer);
         bird.setQ8(answer);
+        String mbti = mbtiService.determineMBTI(answers);
+
+        System.out.println("MBTI 결정됨: " + mbti); // 디버깅 로그 추가
+
+        model.addAttribute("mbti", mbti);
         return "loading2";
     }
 
+
     @GetMapping("/result_{mbti}")
     public String resultByMBTI(@PathVariable String mbti, Model model) {
+        System.out.println("요청된 MBTI: " + mbti);
         Bird bird = birdRepository.findByMbti(mbti);
-        if (bird != null) {
-            String birdName = mbtiService.getBirdName(bird.getMbti());
-            model.addAttribute("birdName", birdName);
-            return mbti; // Return the MBTI type directly
-        } else {
-            model.addAttribute("birdName", "Unknown");
-            return "Unknown";
+
+        if (bird == null) {
+            System.out.println("해당 MBTI 결과 없음: " + mbti);
+            return "redirect:/error";
         }
+
+        String birdName = mbtiService.getBirdName(bird.getMbti());
+        model.addAttribute("birdName", birdName);
+        return "result_" + mbti;
     }
+
 
     @GetMapping("/result_INTJ")
     public String result_INTJ() {
         return "result_INTJ";
+    }
+
+    @GetMapping("/result_INTP")
+    public String result_INTP() {
+        return "result_INTP";
+    }
+
+    @GetMapping("/result_ENTJ")
+    public String result_ENTJ() {
+        return "result_ENTJ";
+    }
+
+    @GetMapping("/result_ENTP")
+    public String result_ENTP() {
+        return "result_ENTP";
+    }
+
+    @GetMapping("/result_INFJ")
+    public String result_INFJ() {
+        return "result_INFJ";
+    }
+
+    @GetMapping("/result_INFP")
+    public String result_INFP() {
+        return "result_INFP";
+    }
+
+    @GetMapping("/result_ENFJ")
+    public String result_ENFJ() {
+        return "result_ENFJ";
+    }
+
+    @GetMapping("/result_ENFP")
+    public String result_ENFP() {
+        return "result_ENFP";
+    }
+
+    @GetMapping("/result_ISTJ")
+    public String result_ISTJ() {
+        return "result_ISTJ";
+    }
+
+    @GetMapping("/result_ISFJ")
+    public String result_ISFJ() {
+        return "result_ISFJ";
+    }
+
+    @GetMapping("/result_ESTJ")
+    public String result_ESTJ() {
+        return "result_ESTJ";
+    }
+
+    @GetMapping("/result_ESFJ")
+    public String result_ESFJ() {
+        return "result_ESFJ";
+    }
+
+    @GetMapping("/result_ISTP")
+    public String result_ISTP() {
+        return "result_ISTP";
+    }
+
+    @GetMapping("/result_ISFP")
+    public String result_ISFP() {
+        return "result_ISFP";
+    }
+
+    @GetMapping("/result_ESTP")
+    public String result_ESTP() {
+        return "result_ESTP";
+    }
+
+    @GetMapping("/result_ESFP")
+    public String result_ESFP() {
+        return "result_ESFP";
     }
 
 }

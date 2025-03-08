@@ -1,4 +1,3 @@
-// src/main/java/com/example/Ho_Birding/main/entity/Bird.java
 package com.example.Ho_Birding.main.entity;
 
 import jakarta.persistence.*;

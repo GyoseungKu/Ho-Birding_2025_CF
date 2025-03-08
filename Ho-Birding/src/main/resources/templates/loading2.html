@@ -37,9 +37,12 @@
         currentDot = (currentDot + 1) % dots.length;
     }, 500);
 
+    const mbti = "[[${mbti}]]";
+
     setTimeout(function() {
-        window.location.href = "result";
+        window.location.href = `/result_${mbti}`;
     }, 3600);
+
 </script>
 </body>
 </html>
