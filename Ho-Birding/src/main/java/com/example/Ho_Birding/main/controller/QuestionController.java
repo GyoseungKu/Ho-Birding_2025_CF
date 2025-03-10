@@ -27,8 +27,8 @@ public class QuestionController {
 
     @GetMapping("/question1")
     public String question1() {
-        answers = new ArrayList<>();  // 새로운 리스트로 초기화
-        bird = new Bird();  // 새로운 Bird 객체 생성
+        answers = new ArrayList<>();
+        bird = new Bird();
         return "question1";
     }
 
@@ -88,20 +88,17 @@ public class QuestionController {
 
     @GetMapping("/loading2")
     public String loading2(@RequestParam String answer, Model model) {
-        answers.add(answer);  // Add the last answer to the answers list
-        bird.setQ8(answer);   // Set the last answer in the Bird entity
+        answers.add(answer);
+        bird.setQ8(answer);
 
-        // Determine MBTI
         if (bird.getMbti() == null) {
             String mbti = mbtiService.determineMBTI(answers);
             bird.setMbti(mbti);
             System.out.println("Determined MBTI: " + mbti);
         }
 
-        // Save the Bird entity to the database
         birdRepository.save(bird);
 
-        // Add the MBTI to the model
         model.addAttribute("mbti", bird.getMbti());
         return "loading2";
     }
@@ -113,10 +110,10 @@ public class QuestionController {
 
         if (birds.isEmpty()) {
             System.out.println("No results found for MBTI: " + mbti);
-            return "redirect:/error"; // 에러 페이지로 리디렉션
+            return "redirect:/error";
         }
 
-        Bird bird = birds.get(0); // 첫 번째 결과를 사용
+        Bird bird = birds.get(0);
         String birdName = mbtiService.getBirdName(bird.getMbti());
         model.addAttribute("birdName", birdName);
         return "result_" + mbti;
@@ -207,5 +204,4 @@ public class QuestionController {
     public String error() {
         return "error";
     }
-
 }

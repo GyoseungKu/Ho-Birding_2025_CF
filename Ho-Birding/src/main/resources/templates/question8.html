@@ -67,11 +67,22 @@
   <br><br><br><br><br><br>
 </div>
 <div class="answer-buttons">
-  <a href="loading2?answer=A" class="answer-button">A. 전략적으로 먹이를 찾아<br>
+  <a href="loading2?answer=A" class="answer-button" onclick="disableButtons()">A. 전략적으로 먹이를 찾아<br>
     정확한 타이밍에 사냥한다!</a>
-  <a href="loading2?answer=B" class="answer-button">B. 먹이를 찾을 때 감각적으로 반응하며,<br>
+  <a href="loading2?answer=B" class="answer-button" onclick="disableButtons()">B. 먹이를 찾을 때 감각적으로 반응하며,<br>
     순간적인 기회를 놓치지 않는다!
   </a>
 </div>
+
+<script>
+  function disableButtons() {
+    const buttons = document.querySelectorAll('.answer-button');
+    buttons.forEach(button => {
+      button.style.pointerEvents = 'none';  // 클릭 비활성화
+      button.style.opacity = '0.5';  // 버튼 흐리게 표시
+    });
+  }
+</script>
+
 </body>
 </html>

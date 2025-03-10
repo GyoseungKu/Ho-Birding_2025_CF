@@ -41,7 +41,7 @@
         .answer-button {
             display: block;
             width: 100%;
-            max-width: 4000px;
+            max-width: 400px;
             padding: 15px;
             background: #297131;
             color: white;
@@ -64,13 +64,21 @@
 </div>
 <div class="question-container">
     <h2>내가 새로운 둥지에 처음 도착했을 때, 나는?</h2>
-    <br><br><br><br><br><br>
 </div>
 <div class="answer-buttons">
-    <a href="question2?answer=A" class="answer-button">A. 새콤한 과일과 편안한 구석을 찾으며<br>
-        천천히 주변을 살펴봐</a>
-    <a href="question2?answer=B" class="answer-button">B. 날개 펴고, 이곳저곳을 빨리 탐험해야<br>
-        적성이 풀려!</a>
+    <a href="question2?answer=A" class="answer-button" onclick="disableButtons()">A. 새콤한 과일과 편안한 구석을 찾으며<br>천천히 주변을 살펴봐</a>
+    <a href="question2?answer=B" class="answer-button" onclick="disableButtons()">B. 날개 펴고, 이곳저곳을 빨리 탐험해야<br>적성이 풀려!</a>
 </div>
+
+<script>
+    function disableButtons() {
+        const buttons = document.querySelectorAll('.answer-button');
+        buttons.forEach(button => {
+            button.style.pointerEvents = 'none';  // 클릭 비활성화
+            button.style.opacity = '0.5';  // 버튼 흐리게 표시
+        });
+    }
+</script>
+
 </body>
 </html>

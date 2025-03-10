@@ -67,10 +67,21 @@
   <br><br><br><br><br><br>
 </div>
 <div class="answer-buttons">
-  <a href="question5?answer=A" class="answer-button">A. 비행 훈련에 있어 정확한 방법을 알려주고<br>
+  <a href="question5?answer=A" class="answer-button" onclick="disableButtons()">A. 비행 훈련에 있어 정확한 방법을 알려주고<br>
     실수를 줄이게 도와주지!</a>
-  <a href="question5?answer=B" class="answer-button">B. 비행 훈련에서 감정을 이해하고 격려하면서,<br>
+  <a href="question5?answer=B" class="answer-button" onclick="disableButtons()">B. 비행 훈련에서 감정을 이해하고 격려하면서,<br>
     자신감을 주는 게 중요해!</a>
 </div>
+
+<script>
+  function disableButtons() {
+    const buttons = document.querySelectorAll('.answer-button');
+    buttons.forEach(button => {
+      button.style.pointerEvents = 'none';  // 클릭 비활성화
+      button.style.opacity = '0.5';  // 버튼 흐리게 표시
+    });
+  }
+</script>
+
 </body>
 </html>

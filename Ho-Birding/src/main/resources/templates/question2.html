@@ -67,10 +67,21 @@
     <br><br><br><br><br><br>
 </div>
 <div class="answer-buttons">
-    <a href="question3?answer=A" class="answer-button">A. 한 마리씩 따로 앉아서,<br>
+    <a href="question3?answer=A" class="answer-button" onclick="disableButtons()">A. 한 마리씩 따로 앉아서,<br>
         깊은 대화를 나누는 게 더 좋지!</a>
-    <a href="question3?answer=B" class="answer-button">B. 여러 마리와 함께 날고 떠들며 분위기를<br>
+    <a href="question3?answer=B" class="answer-button" onclick="disableButtons()">B. 여러 마리와 함께 날고 떠들며 분위기를<br>
         띄우는 게 더 재밌어!</a>
 </div>
+
+<script>
+    function disableButtons() {
+        const buttons = document.querySelectorAll('.answer-button');
+        buttons.forEach(button => {
+            button.style.pointerEvents = 'none';  // 클릭 비활성화
+            button.style.opacity = '0.5';  // 버튼 흐리게 표시
+        });
+    }
+</script>
+
 </body>
 </html>

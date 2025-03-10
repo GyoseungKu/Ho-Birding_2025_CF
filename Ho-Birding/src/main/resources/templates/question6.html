@@ -67,10 +67,21 @@
   <br><br><br><br><br><br>
 </div>
 <div class="answer-buttons">
-  <a href="question7?answer=A" class="answer-button">A. 각자 맡을 역할을 정하고<br>
+  <a href="question7?answer=A" class="answer-button" onclick="disableButtons()">A. 각자 맡을 역할을 정하고<br>
     체계적으로 진행하자고 말할 거야!</a>
-  <a href="question7?answer=B" class="answer-button">B. 날개를 펴고 자유롭게 아이디어를<br>
+  <a href="question7?answer=B" class="answer-button" onclick="disableButtons()">B. 날개를 펴고 자유롭게 아이디어를<br>
     떠올려 보자!</a>
 </div>
+
+<script>
+  function disableButtons() {
+    const buttons = document.querySelectorAll('.answer-button');
+    buttons.forEach(button => {
+      button.style.pointerEvents = 'none';  // 클릭 비활성화
+      button.style.opacity = '0.5';  // 버튼 흐리게 표시
+    });
+  }
+</script>
+
 </body>
 </html>

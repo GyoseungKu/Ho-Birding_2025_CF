@@ -68,10 +68,21 @@
     <br><br><br><br><br><br>
 </div>
 <div class="answer-buttons">
-    <a href="question4?answer=A" class="answer-button">A. 날개를 정확히 펼쳐야 하지 않겠어?<br>
+    <a href="question4?answer=A" class="answer-button" onclick="disableButtons()">A. 날개를 정확히 펼쳐야 하지 않겠어?<br>
         계획이 중요해!</a>
-    <a href="question4?answer=B" class="answer-button">B. 바람에 몸을 맡기고,<br>
+    <a href="question4?answer=B" class="answer-button" onclick="disableButtons()">B. 바람에 몸을 맡기고,<br>
         자연스럽게 하늘을 나는 게 최고야!</a>
 </div>
+
+<script>
+    function disableButtons() {
+        const buttons = document.querySelectorAll('.answer-button');
+        buttons.forEach(button => {
+            button.style.pointerEvents = 'none';  // 클릭 비활성화
+            button.style.opacity = '0.5';  // 버튼 흐리게 표시
+        });
+    }
+</script>
+
 </body>
 </html>
