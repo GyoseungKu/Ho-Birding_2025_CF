@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 public class MBTIService {
     private static final Map<List<String>, String> mbtiMap = new HashMap<>();
     private static final Map<String, String> birdNameMap = new HashMap<>();
+    private static final Random random = new Random();
 
     static {
         String[] mbtiTypes = {"ISTJ", "ISFJ", "INFJ", "INTJ", "ISTP", "ISFP", "INFP", "INTP",
@@ -45,12 +47,19 @@ public class MBTIService {
     }
 
     public String determineMBTI(List<String> answers) {
-        // answers 리스트가 8개의 "A" 또는 "B" 값으로 구성되어 있는지 확인
-        if (answers.size() != 8 || !answers.stream().allMatch(answer -> answer.equals("A") || answer.equals("B"))) {
+        List<String> normalizedAnswers = new ArrayList<>(answers);
+        while (normalizedAnswers.size() < 8) {
+            normalizedAnswers.add(random.nextBoolean() ? "A" : "B");
+        }
+        if (normalizedAnswers.size() > 8) {
+            normalizedAnswers = normalizedAnswers.subList(0, 8);
+        }
+
+        if (!normalizedAnswers.stream().allMatch(answer -> answer.equals("A") || answer.equals("B"))) {
             throw new IllegalArgumentException("Invalid answers: " + answers);
         }
 
-        String result = mbtiMap.getOrDefault(answers, "Unknown");
+        String result = mbtiMap.getOrDefault(normalizedAnswers, "Unknown");
         System.out.println("determineMBTI result: " + result);
         return result;
     }
